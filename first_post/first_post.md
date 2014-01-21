@@ -21,3 +21,4 @@ Then I'll have to build out an app that lets me write my posts and sends it to t
 ### Edit
 
 * [Repository with the blog posts.](https://github.com/cesarandreu/blog)
+* [Repository for blog viewer.](https://github.com/cesarandreu/blog_viewer)
