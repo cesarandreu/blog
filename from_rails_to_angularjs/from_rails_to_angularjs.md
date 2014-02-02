@@ -2,7 +2,7 @@
 
 ## Introduction
 
-At [Treasure Data](www.treasuredata.com) we were using Rails 3 for our web console. Initially, we would just add on jQuery to pages where we wanted improved functionality. Eventually, we started needing complicated functionality for some pages, and we decided to have an angular app per page. (**NOTE:** Not suggested.)
+At [Treasure Data](http://www.treasuredata.com) we were using Rails 3 for our web console. Initially, we would just add on jQuery to pages where we wanted improved functionality. Eventually, we started needing complicated functionality for some pages, and we decided to have an angular app per page. (**NOTE:** Not suggested.)
 
 Unfortunately, our views were rendering _extremely_ slow, so each page load would take a very long time. For a while, I tried to optimize our views, by using [New Relic](https://github.com/newrelic/rpm) to find where they were going slowly. I gave up on this, as it wasn't yielding good results. 
 
@@ -216,7 +216,7 @@ After your grunt.initconfig you also need to set it up so that the file (or file
 ## Continuous Integration
 
 
-With [CircleCI](circleci.com) you have to define a file with all of your configuration. Since our Rails app and Angular app are in the same folder, our setup is a bit complicated. 
+With [CircleCI](https://circleci.com) you have to define a file with all of your configuration. Since our Rails app and Angular app are in the same folder, our setup is a bit complicated. 
 
 When you push to our repo, it gets picked up by CircleCI. First it installs Rails and Node's dependencies, updates webdriver and build the app. Then it'll prepare the integration environment's database. It runs all the rspec tests automatically, afterwards it'll start Rails in the integration environment, start webdriver, run the unit tests, and run the E2E tests. 
 
