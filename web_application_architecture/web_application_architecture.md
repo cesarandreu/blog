@@ -1,6 +1,6 @@
 # Web application architecture
 
-I've spent some time thinking about how a web application should be architected. Basically, how should it look from a high level? How does the development cycle look? How does the deployment process look?
+I've spent some time thinking about how a web application should be architected. How should it look from a high level? How does the development cycle look? How does the deployment process look?
 
 I read a lot about how applications should be modular, and I agree with this, but in practice I've come to realize I don't know how a large application should look. 
 
