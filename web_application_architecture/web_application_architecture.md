@@ -6,7 +6,7 @@ I read a lot about how applications should be modular, and I agree with this, bu
 
 One of my coworkers says that you should try to visualize the perfect system, and aspire to build that perfect system, even if it's impossible in practice. When you know what the perfect system looks like, you can attempt to model your implementation as close as possible to that system.
 
-The goal of this blog post is to try to write up some ideas, and receive feedback. If you're knowledgeable about web application architecturev you might want to skip to the part where it says __Making things smaller__.
+The goal of this blog post is to try to write up some ideas, and receive feedback. If you're knowledgeable about web application architecture you might want to skip to the part where it says __Making things smaller__.
 
 ## Known architectures
 
@@ -14,7 +14,7 @@ The goal of this blog post is to try to write up some ideas, and receive feedbac
 
 I believe Rails provides an easy to understand architecture. If you're starting off with web development, it seems like the clear choice to show you how MVC should look. It tells you how to structure everything, and it's has a lot of years of good practices behind it. 
 
-With Rails you have one respository/folder, and your whole application is there in one place. You will request a page, and Rails will serve it up. 
+With Rails you have one repository/folder, and your whole application is there in one place. You will request a page, and Rails will serve it up. 
 
 The Rails approach is great for things like blogs or document oriented websites. You can get it up and running in a very small amount of time, and it'll be very well structured. I believe this works great for websites that have little to no javascript.
 
@@ -24,19 +24,19 @@ It has multiple benefits, though. During development you simply run `RAILS_ENV=d
 
 ### Rails API + AngularJS 
 
-This is still very similar to the previous approach, but Rails simply provides multiple JSON endpoints. AngularJS is a consumer of the JSON endpoints. It's what we use at [Treasure Data](wwww.treasuredata.com). This should be applicable to other frontend frameworks as well.
+This is still very similar to the previous approach, but Rails simply provides multiple JSON endpoints. AngularJS is a consumer of the JSON endpoints. It's what we use at [Treasure Data](wwww.treasuredata.com). This should be applicable to other front-end frameworks as well.
 
 AngularJS will dynamically change pages and load content as required. The first benefit you'll notice from this is that it should be REALLY fast! You can start caching data on the client-side, so if they've previously visited a page you can show the cached data all while loading in new data that may have changed since their last visit.
 
 With this approach you can provide a far better experience for your user. It can feel closer to an application and can provide improved interactions. 
 
-The user's first page load will always take a reasonable amount of time, since it has to serve up the entire angularjs application. The way this is typically handled is by having the server respond with index.html to all requests that do not start with /api/ or /assets/. Once the application is loaded, the router can take over and begin fetching the data to display the appropriate page. When changing pages withing the application it will fire off AJAX requests and dynamically change the view.
+The user's first page load will always take a reasonable amount of time, since it has to serve up the entire angularjs application. The way this is typically handled is by having the server respond with index.html to all requests that do not start with /api/ or /assets/. Once the application is loaded, the router can take over and begin fetching the data to display the appropriate page. When changing pages within the application it will fire off AJAX requests and dynamically change the view.
 
 One downside is that your users will require javascript to use your web app at all. And the initial page-load could take a substantial amount of time, depending on the size of the application.
 
 Development in this architecture will require starting up Rails in the background and then using something like Grunt or Gulp with a proxy to the Rails server and a static file server. So you can make all non /api/ requests respond with either the specific JS/CSS/whatever file or with the index.html file, which is the entry point for angular. For /api/ requests you just forward them to the rails server and return the response. Setting this up could take some time, thankfully there's a lot of scaffolds and examples online. I also wrote about this in my previous blog post. 
 
-Deployment can get tricky. You'll want to build your AngularJS app and copy it to the /public/ folder of Rails (or you could deploy it with another static file server, that's also a possibility), and THEN you'll want to actually deploy the Rails app. With heroku you can use buildpacks to achieve this without TOO much hassle. Building the angular app will also have its own set of complications and will require additional work in Grunt or Gulp.
+Deployment can get tricky. You'll want to build your AngularJS app and copy it to the /public/ folder of Rails (or you could deploy it with another static file server, that's also a possibility), and THEN you'll want to actually deploy the Rails app. With Heroku you can use buildpacks to achieve this without TOO much hassle. Building the angular app will also have its own set of complications and will require additional work in Grunt or Gulp.
 
 One huge benefit of this architecture is that you can split up controllers to be much smaller, and if you chose to build a mobile app or a CLI interface, you already have API.
 
@@ -56,7 +56,7 @@ Do you just build up lots of small applications where each just does one thing? 
 
 Do you just create a core API which contains hard dependencies, and then small applications to complement that API? If the small application requires some data from the core API, should it just hit its endpoints or should the user be expected to provide the required data?
 
-Do you create fewer applications with modules that could be thought of as smaller applications? Or maybe more applications with modules shared accross them?
+Do you create fewer applications with modules that could be thought of as smaller applications? Or maybe more applications with modules shared across them?
 
 Should all your applications use the same language? There's usually going to be certain languages/frameworks that beat out others in certain areas, and you'd probably want to take advantage of those. But then you'd be unable to share modules.
 
@@ -74,7 +74,7 @@ How will deployment look? How will development look for the consumer of these AP
 
 Should it be one database per application? Should any applications share a database?
 
-What about your frontend? Will it be deployed with a server that forwards all requests to the correct place, or do you hit the different servers directly? 
+What about your front-end? Will it be deployed with a server that forwards all requests to the correct place, or do you hit the different servers directly? 
 
 ### Best approach
 
