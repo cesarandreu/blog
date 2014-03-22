@@ -6,7 +6,7 @@ I read a lot about how applications should be modular, and I agree with this, bu
 
 One of my coworkers says that you should try to visualize the perfect system, and aspire to build that perfect system, even if it's impossible in practice. When you know what the perfect system looks like, you can attempt to model your implementation as close as possible to that system.
 
-The goal of this blog post is to try to write up some ideas, and receive feedback. If you're knowledgeable about web application architecture you might want to skip to the part where it says __Making things smaller__.
+The goal of this blog post is to try to write up some ideas, and receive feedback. I have a lot of questions related to how a modular web app should look. If you're knowledgeable about web application architecture you might want to skip to the part where it says __Making things smaller__.
 
 ## Known architectures
 
