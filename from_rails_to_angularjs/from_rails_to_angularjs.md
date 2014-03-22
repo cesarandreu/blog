@@ -32,7 +32,7 @@ I've added on a lot of functionality to our Gruntfile as things have been progre
 
 Devcode is particularly useful, as it allows you to avoid having to load your user tracking code or chat code.
 
-We're using [Bower](bower.io) for our client-side dependencies, and it's great, except when it fails. As of writing this, Bower randomly fails, so it ends up breaking our CI and depoyment. To solve this, we were forced to include our `bower_components` folder into source control. Although I'm hopeful that we'll be able to remove this soon, as I've seen there's already some pull requests to fix these issues.
+We're using [Bower](http://bower.io/) for our client-side dependencies, and it's great, except when it fails. As of writing this, Bower randomly fails, so it ends up breaking our CI and depoyment. To solve this, we were forced to include our `bower_components` folder into source control. Although I'm hopeful that we'll be able to remove this soon, as I've seen there's already some pull requests to fix these issues.
 
 I have bower as a dependency in our `package.json`, and in the script's section we have a postinstall step which is just `"./node_modules/.bin/bower install"` so that when you run `npm install`, you also get the client-side dependencies installed.
 
