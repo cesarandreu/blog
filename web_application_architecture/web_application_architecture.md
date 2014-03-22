@@ -24,7 +24,7 @@ It has multiple benefits, though. During development you simply run `RAILS_ENV=d
 
 ### Rails API + AngularJS 
 
-This is still very similar to the previous approach, but Rails simply provides multiple JSON endpoints. AngularJS is a consumer of the JSON endpoints. It's what we use at [Treasure Data](wwww.treasuredata.com). This should be applicable to other front-end frameworks as well.
+This is still very similar to the previous approach, but Rails simply provides multiple JSON endpoints. AngularJS is a consumer of the JSON endpoints. It's what we use at [Treasure Data](http://www.treasuredata.com). This should be applicable to other front-end frameworks as well.
 
 AngularJS will dynamically change pages and load content as required. The first benefit you'll notice from this is that it should be REALLY fast! You can start caching data on the client-side, so if they've previously visited a page you can show the cached data all while loading in new data that may have changed since their last visit.
 
@@ -46,7 +46,7 @@ The problem with the Rails API + AngularJS solution is that it still suffers fro
 
 ### Break everything apart
 
-The idea I've started to consider is that your large application should probably just be a bunch of small applications that looks like a large application from an outsider's perspective. This seems like the ideal, but the more I think about this, the more questions I find. It seems like you can make it very easy to reason about specific parts of your application with this approach, but in exchange it complicates your deployment and development, and that seems to open up a can of worms. 
+The idea I've started to consider is that your large application should probably just be a bunch of small applications that look like a large application from an outsider's perspective. This seems like the ideal, but the more I think about this, the more questions I find. It seems like you can make it very easy to reason about specific parts of your application with this approach, but in exchange it complicates your deployment and development, and that seems to open up a can of worms. 
 
 I recently learned of JWT, or [JSON Web Token](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). And I believe if you use this approach for your authentication layer you can push towards building smaller applications. The idea is that you'll have an authentication server (or it could be part of your core API) which is responsible for giving users their token. Once a user has a token, they can hit any of the applications, and the application can very easily check the validity of the token before deciding what to do with the request.
 
