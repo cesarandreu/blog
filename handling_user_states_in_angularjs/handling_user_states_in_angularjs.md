@@ -22,7 +22,7 @@ For starters, I suggest using [ui-router](https://github.com/angular-ui/ui-route
 
 Here's the code. It's a full example, and is explained below. It goes inside a configuration block:
 
-```
+```javascript
 $stateProvider
 
 .state('loggedOut', {
@@ -99,7 +99,6 @@ $httpProvider.responseInterceptors
     });
   };
 }]);
-
 ```
 
 
