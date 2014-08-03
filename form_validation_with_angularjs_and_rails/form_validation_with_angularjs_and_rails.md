@@ -1,10 +1,10 @@
 # Form Validation with AngularJS and Rails
 
-I've noticed that a lot of people seem to struggle with form validation. In my job at [Treasure-Data](www.treasuredata.com), I feel like we've found a great solution and felt obligated to share it.
+I've noticed that a lot of people seem to struggle with form validation. In my job at [Treasure-Data](http://www.treasuredata.com), I feel like we've found a great solution and felt obligated to share it.
 
 Major props and credit goes to my coworker, Jake Becker, who was the one that initially implemented this. I simply ripped it out of our web console, added tests, and published it.
 
-Although this blog post partly focuses on using a Rails backend, the angular directive and service can easily be used with any backend that implements validation errors in the same format. (Regardless of how validation errors are being done in your backend, one could most likely write a simple transformer to get the errors in the same format.)
+Although this blog post partly focuses on using a Rails backend, the angular directive and service can easily be used with any backend that implements validation errors in the same format. (Regardless of how validation errors are being done in the backend, one could most likely write a simple transformer to get the errors in the same format.)
 
 ## AngularJS
 
@@ -72,7 +72,7 @@ Upon receiving this, the form model gets updated and the error message is displa
 
 ### Directive vs Service
 
-The directive is just a wrapper around the `serverForm` service. We've found that for most cases it provides the desired behavior, it's used in almost all of our forms. Try it out in our [web console](https://console.treasuredata.com/)!
+The directive is just a wrapper around the `serverForm` service. We've found that for most cases it provides the desired behavior, it's used in almost all of our forms. (Try it out in our [web console](https://console.treasuredata.com/)!)
 
 If you need something more flexible you can create your own directive that makes use of the service, or use it directly from the controller. I've tried to do my best to document it, and I'm very open to constructive feedback on how to improve it.
 
@@ -89,8 +89,9 @@ def render_validation_errors(model)
 end
 ```
 
-Then you can use it in the model controller whenever something is being created or updated.
-If we assume the frontend is the previous example, `user_controller.rb` would look something like this:
+You can use it in the model controller whenever something is being created or updated.
+
+If we assume the frontend is the previous example, `user_controller.rb` would look like this:
 
 ```ruby
 def create
@@ -109,6 +110,6 @@ That's it! How simple was that?
 I have yet to encounter a case where this format has proven to be inappropriate.
 Frontend libraries could be written for other frameworks like Ember, or even as a jQuery plugin. Maybe it's already been done and I'm simply unaware of it, which wouldn't surprise me.
 
-Additionally, it'd be great to have an endpoint that looked at Active Record Validations and generated a JSON response for validations that can be done on the frontend. It would provide a better user experience, and you wouldn't have to worry about updating validation in two places.
+One idea I've had is that it'd be great to have an endpoint that looked at Active Record validations and generated a JSON response for validations that can be done on the client. It would provide a better user experience, and you wouldn't have to worry about updating validation in two places.
 
 But there's no reason to limit it just to Rails! Any model layer could implement both validation errors and the client-side validations hash.
