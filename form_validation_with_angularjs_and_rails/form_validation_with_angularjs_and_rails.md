@@ -54,7 +54,7 @@ The serialized form will look something like this:
 }
 ```
 
-Let's pretend that this name is invalid because it is already taken. This is a validation which can only be done on the server.
+Let's pretend that this name is invalid because it is already taken. This is a validation that can only be done on the server.
 Then we should receive a response with a `422` status code and a body that looks something like this:
 
 ```json
@@ -107,7 +107,7 @@ That's it! How simple was that?
 ## Future work
 
 I have yet to encounter a case where this format has proven to be inappropriate.
-Frontend libraries could be written for other frameworks like Ember, or even as a jquery plugin. Maybe it's already been done and I'm simply unaware of it, which wouldn't surprise me.
+Frontend libraries could be written for other frameworks like Ember, or even as a jQuery plugin. Maybe it's already been done and I'm simply unaware of it, which wouldn't surprise me.
 
 Additionally, it'd be great to have an endpoint that looked at Active Record Validations and generated a JSON response for validations that can be done on the frontend. It would provide a better user experience, and you wouldn't have to worry about updating validation in two places.
 
