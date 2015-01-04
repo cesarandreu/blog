@@ -11,7 +11,7 @@ When learning a framework you'll typically read and reference their documents, e
 
 You'll most likely hack together something that works, all while figuring out and developing an understanding of the patterns and concepts which are presented.
 
-Based on my experience, whatever you're making, the first couple times will probably suck in many ways. _But it works!_ Which is good, because software development is an iterative process.
+Based on my experience, whatever you're making, the first couple times will probably suck in many ways. But it works! Which is great, because software development is an iterative process.
 
 > Dude, suckin' at somethin' is the first step towards bein' sorta good at somethin'.
 >
