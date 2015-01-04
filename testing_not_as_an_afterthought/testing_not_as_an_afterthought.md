@@ -1,6 +1,6 @@
 # Testing not as an afterthought
 
-Alternate title: Examples, guides, and tutorials with tests, please!
+Alternative title: __Examples, guides, and tutorials with tests, please!__
 
 This post is about frameworks, and my frustration with figuring out how to build something not just functional, but also testable. Written with some web and frontend frameworks in mind.
 
