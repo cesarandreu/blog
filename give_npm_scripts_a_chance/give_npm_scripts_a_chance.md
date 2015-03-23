@@ -142,7 +142,23 @@ Another awesome feature that plays well with npm scripts is [npm config](https:/
 
 ## Task runners, Unix philosophy and tools
 
-Before you decide to go searching for a tool, take a bit of time to think about the tools that are already in your toolbox. Remember that the command-line provides a lot of fast, powerful, and very composable tools! As an example, maybe instead of having a sequence of gulp tasks to clean up your build folder, build your app, and copy it to the public folder you can make a scripts (or set of scripts that you compose into one) that will execute `rm -rf build/* && gulp build && cp -Rf build/* public`.
+Before you decide to go searching for a tool, take a bit of time to think about the tools that are already in your toolbox. Remember that the command-line provides a lot of fast, powerful, and very composable tools! Maybe instead of having a sequence of gulp tasks to clean up your build folder, build your app, and copy it to the public folder, you can make a script:
+
+**package.json
+
+```json
+{
+  "scripts": {
+    "build": "rm -rf build/* && gulp build && cp -Rf build/* public"
+  }
+}
+```
+
+**terminal**
+
+```sh
+$ npm run build
+```
 
 Most tools provide a CLI, give them a chance! If their CLI is not good or powerful enough for your needs, consider writing a node script to invoke the programmatic API and perform your task.
 
