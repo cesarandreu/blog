@@ -144,7 +144,7 @@ Another awesome feature that plays well with npm scripts is [npm config](https:/
 
 Before you decide to go searching for a tool, take a bit of time to think about the tools that are already in your toolbox. Remember that the command-line provides a lot of fast, powerful, and very composable tools! Maybe instead of having a sequence of gulp tasks to clean up your build folder, build your app, and copy it to the public folder, you can make a script:
 
-**package.json
+**package.json**
 
 ```json
 {
