@@ -13,7 +13,7 @@ Basically, npm scripts lets you define named scripts, which are combinations of 
 
 If you've used npm for a while you've probably used or seen `npm test` and `npm start`. These are shorthands for `npm run test` and `npm run start`.
 
-This post is covers some of the benefits of adding your own scripts, as well as provide examples for how to do so.
+This post covers some of the benefits of adding your own scripts, as well as provide examples of how to do so.
 
 
 ## What do I get out of it?
