@@ -82,8 +82,6 @@ You can have as many scripts as you want, and use them to create other scripts.
 
 One problem that you quickly notice in the previous section is that you end up having to repeat arguments. Don't worry, we can solve this!
 
-Since I've recently been using [babeljs](http://babeljs.io/), I'll use that to show an example of how to compose multiple scripts:
-
 I've recently been using [babeljs](http://babeljs.io/), an ES6 to ES5 transpiler. While using babeljs I've been composing scripts, so I believe it shows a good real-world example:
 
 **package.json**
