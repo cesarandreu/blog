@@ -111,7 +111,7 @@ Since blacklist and experimental flags are always passed to `babel-node`, a `bas
 
 When generating code coverage, the same options are always passed to [isparta](https://github.com/douglasduteil/isparta) (an istanbul fork that works with babeljs), so a `cover:base` script is made. The `cover` script just passes the file glob.
 
-`test:base` sets the env, and calls mocha directly. This is done so `babel-node`'s flags are respect. The `test` script, like the `cover` script, simply passes all the tests.
+The `test:base` script sets the env, and calls mocha. This is done so `babel-node`'s flags are respected. The `test` script, like the `cover` script, simply passes the tests glob.
 
 This is great, now you can reuse some of these commands!
 
