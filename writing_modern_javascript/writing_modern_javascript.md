@@ -25,7 +25,7 @@ Install [SublimeLinter](https://github.com/SublimeLinter/SublimeLinter3) and [Su
 Then install install [eslint](http://eslint.org/) and [babel-eslint](https://github.com/babel/babel-eslint). If you're gonna be using JSX, go ahead and install [eslint-plugin-react](eslint-plugin-react) too.
 
 ```sh
-npm install -g eslint eslint-plugin-react babel-eslint
+$ npm install -g eslint eslint-plugin-react babel-eslint
 ```
 
 Play around with the example shown in the babel-eslint until you get your `.eslintrc` file exactly how you want it.
