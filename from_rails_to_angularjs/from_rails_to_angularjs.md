@@ -4,29 +4,29 @@
 
 At [Treasure Data](http://www.treasuredata.com) we were using Rails 3 for our web console. Initially, we would just add on jQuery to pages where we wanted improved functionality. Eventually, we started needing complicated functionality for some pages, and we decided to have an angular app per page. (**NOTE:** Not suggested.)
 
-Unfortunately, our views were rendering _extremely_ slow, so each page load would take a very long time. For a while, I tried to optimize our views, by using [New Relic](https://github.com/newrelic/rpm) to find where they were going slowly. I gave up on this, as it wasn't yielding good results. 
+Unfortunately, our views were rendering _extremely_ slow, so each page load would take a very long time. For a while, I tried to optimize our views, by using [New Relic](https://github.com/newrelic/rpm) to find where they were going slowly. I gave up on this, as it wasn't yielding good results.
 
 ## Prototype
 
-During one weekend, I decided to build a prototype of what I thought our web console should be. I ported over three pages to use AngularJS. It was hacky, and it didn't have the full functionality, but it was blazingly fast. My coworkers were impressed, so I got the go-ahead to push for a full port. 
+During one weekend, I decided to build a prototype of what I thought our web console should be. I ported over three pages to use AngularJS. It was hacky, and it didn't have the full functionality, but it was blazingly fast. My coworkers were impressed, so I got the go-ahead to push for a full port.
 
 ## Transitioning
 
-Unfortunately, building a prototype is always the easy part. Doing the whole port has had a bunch of problems I did not take forsee. I put in a proposal outlining the goals and how to reach those goals on December 4'th, 2013. As of writing this, it's February 1'st, 2014, and we have still not managed to remove all of our Rails views. 
+Unfortunately, building a prototype is always the easy part. Doing the whole port has had a bunch of problems I did not take forsee. I put in a proposal outlining the goals and how to reach those goals on December 4'th, 2013. As of writing this, it's February 1'st, 2014, and we have still not managed to remove all of our Rails views.
 
-Thankfully, we made this a progressive transition, which meant we could roll out changes progressively. The basic idea is that we'd convert one page at a time, and push it out to our customers. We weren't exactly perfect on this, and ended up taking a few weeks before we rolled anything out, but as of right now, we're at the point where we can move pages from Rails to AngularJS very easily. 
+Thankfully, we made this a progressive transition, which meant we could roll out changes progressively. The basic idea is that we'd convert one page at a time, and push it out to our customers. We weren't exactly perfect on this, and ended up taking a few weeks before we rolled anything out, but as of right now, we're at the point where we can move pages from Rails to AngularJS very easily.
 
 The ultimate goal is to get Rails to just handle our API, and the angular app can handle the console experience; it also means removing all of our assets from Rails.
 
-I'm going to share how our development workflow looks, some of the issues we encountered, and how we solved them. 
+I'm going to share how our development workflow looks, some of the issues we encountered, and how we solved them.
 
 ## Development environment
 
 I started out with [angular-generator](https://github.com/yeoman/generator-angular). I added on [CoffeeScript](http://coffeescript.org/) and [Jade](http://jade-lang.com/) support. You run `grunt serve` to start developing, it provides live reload and linting.
 
-To get this to work, I had to add a [proxy](https://github.com/drewzboto/grunt-connect-proxy) which would forward requests to the local Rails server. However, it has the unfortunate side-effect that you can't hit Rails' HTML endpoints from the development environment, unless you explicitly added in a whitelist. It's a bit hacky, but it works. 
+To get this to work, I had to add a [proxy](https://github.com/drewzboto/grunt-connect-proxy) which would forward requests to the local Rails server. However, it has the unfortunate side-effect that you can't hit Rails' HTML endpoints from the development environment, unless you explicitly added in a whitelist. It's a bit hacky, but it works.
 
-While we're transitioning, we have our main Rails app, `td-api`, and inside it there's a `console` folder. In the console folder we have the AngularJS app, along with all of its configuration and tests. If you run `grunt build`, it builds the app in `td-api/console/dist`, cleans `td-api/public`, and moves all the compiled files. Then if you start Rails, you can interact with the website as it would be used in production. 
+While we're transitioning, we have our main Rails app, `td-api`, and inside it there's a `console` folder. In the console folder we have the AngularJS app, along with all of its configuration and tests. If you run `grunt build`, it builds the app in `td-api/console/dist`, cleans `td-api/public`, and moves all the compiled files. Then if you start Rails, you can interact with the website as it would be used in production.
 
 I've added on a lot of functionality to our Gruntfile as things have been progressing. We compile all of our html files with [ngtemplates](https://github.com/ericclemmons/grunt-angular-templates), we have environment variables with [devcode](https://github.com/livedata/grunt-devcode), and we have automatic test running. Just to name a few.
 
@@ -85,7 +85,7 @@ With that being said, we do have some interceptors for certain errors. For examp
 
 ## Validation Errors
 
-My coworker took the lead on this. He created a directive which wraps ngForm, it takes all of the form's information (method, URL, onSuccess) and it transcludes allowing you to create your form however you want. For each input, he adds another directive for validation errors. Now, as long as your form's model matches the model on the server, on a failed submission all of the error messages are propagated and displayed below the fields.  
+My coworker took the lead on this. He created a directive which wraps ngForm, it takes all of the form's information (method, URL, onSuccess) and it transcludes allowing you to create your form however you want. For each input, he adds another directive for validation errors. Now, as long as your form's model matches the model on the server, on a failed submission all of the error messages are propagated and displayed below the fields.
 
 On the server there's a helper function that looks like this:
 
@@ -115,9 +115,9 @@ Unfortunately we haven't been very diligent with unit testing. We try to test fu
 
 There's a watcher on unit tests, though! So when you do `grunt serve` it also watches your unit tests and runs them if any of them change.
 
-Something we've been pushing very hard on are E2E tests. We're using [Protractor](https://github.com/angular/protractor/), it's quite awesome, and a big shoutout to [juliemr](https://github.com/juliemr) for her outstanding effort on it. Since I'm not experienced with how E2E tests should look or how the environment should be set up, I've sort of been putting things together as we've gone along. 
+Something we've been pushing very hard on are E2E tests. We're using [Protractor](https://github.com/angular/protractor/), it's quite awesome, and a big shoutout to [juliemr](https://github.com/juliemr) for her outstanding effort on it. Since I'm not experienced with how E2E tests should look or how the environment should be set up, I've sort of been putting things together as we've gone along.
 
-We have a Rakefile that gives you a fresh environment to run your tests. It will drop the database if it exists, load the schema, and load the seeds. Additionally, it'll start up Rails. 
+We have a Rakefile that gives you a fresh environment to run your tests. It will drop the database if it exists, load the schema, and load the seeds. Additionally, it'll start up Rails.
 
 `integration.rake`
 
@@ -163,7 +163,7 @@ else
 end
 ```
 
-Inside `integration_seeds.rb` we create a few accounts and resources which would be impossible to create programmatically from our E2E tests. 
+Inside `integration_seeds.rb` we create a few accounts and resources which would be impossible to create programmatically from our E2E tests.
 
 These tests can ensure that at least the core functionality of our web console is present and that nothing is explicitly broken. Ultimately, I'd love to separate the tests into ones that can be run in a self contained way (that is, it programmatically generates all of the resources it needs to test certain functionality), and tests which require preparing the database with certain values beforehand.
 
@@ -216,9 +216,9 @@ After your grunt.initconfig you also need to set it up so that the file (or file
 ## Continuous Integration
 
 
-With [CircleCI](https://circleci.com) you have to define a file with all of your configuration. Since our Rails app and Angular app are in the same folder, our setup is a bit complicated. 
+With [CircleCI](https://circleci.com) you have to define a file with all of your configuration. Since our Rails app and Angular app are in the same folder, our setup is a bit complicated.
 
-When you push to our repo, it gets picked up by CircleCI. First it installs Rails and Node's dependencies, updates webdriver and build the app. Then it'll prepare the integration environment's database. It runs all the rspec tests automatically, afterwards it'll start Rails in the integration environment, start webdriver, run the unit tests, and run the E2E tests. 
+When you push to our repo, it gets picked up by CircleCI. First it installs Rails and Node's dependencies, updates webdriver and build the app. Then it'll prepare the integration environment's database. It runs all the rspec tests automatically, afterwards it'll start Rails in the integration environment, start webdriver, run the unit tests, and run the E2E tests.
 
 Below you can see an example of how this looks, although I've ommited some parts that aren't relevant.
 
@@ -235,7 +235,7 @@ dependencies:
         pwd: console
         environment:
           BUNDLE_GEMFILE: ../Gemfile
-          
+
 database:
 	post:
 		- bundle exec rake integration:prepare
@@ -250,7 +250,7 @@ test:
         timeout: 600
         environment:
           BUNDLE_GEMFILE: ../Gemfile
-          
+
 deployment:
   staging:
     branch: master
@@ -259,7 +259,7 @@ deployment:
   production:
     branch: production
     heroku:
-      appname: production 
+      appname: production
 ```
 
 **NOTE:** We have to run some commands with `bundle exec` because we're using Compass for our stylesheets, and we install this as part of Rails' dependencies.
@@ -268,7 +268,7 @@ deployment:
 
 We use Heroku. Deploying required changing the buildpack. Originally we just used the default Ruby buildpack. But since we don't want to commit our public folder to source control, we're using [heroku-buildpack-multi](https://github.com/ddollar/heroku-buildpack-multi). As the name implies, it allows you to have multiple buildpacks.
 
-I forked a fork of the Heroku Node buildpack and made some parts configurable, [you can it find here](https://github.com/treasure-data/heroku-buildpack-nodejs-grunt-compass-configurable/). It allows you to add a config file to specify what directory your package.json is located in, what npm command to execute, and what grunt command to execute. 
+I forked a fork of the Heroku Node buildpack and made some parts configurable, [you can it find here](https://github.com/treasure-data/heroku-buildpack-nodejs-grunt-compass-configurable/). It allows you to add a config file to specify what directory your package.json is located in, what npm command to execute, and what grunt command to execute.
 
 `.heroku_config`
 
@@ -282,7 +282,7 @@ After the Node buildpack is run, it runs the Ruby buildpack to run Rails.
 
 ## Conclusion
 
-Hopefully this can help out future developers that want to transition from Rails views to AngularJS. I'd love feedback, and I'd be more than glad to help anyone out if they're having issues or they're trying something similar. 
+Hopefully this can help out future developers that want to transition from Rails views to AngularJS. I'd love feedback, and I'd be more than glad to help anyone out if they're having issues or they're trying something similar.
 
 We've also done some neat tricks with our model layer to make page changes appear faster. I'm hoping I can clean up that code and put it out there for others to use; I'll probably be writing another blog about our models.
 
