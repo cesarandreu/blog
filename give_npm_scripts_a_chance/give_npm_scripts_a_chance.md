@@ -66,7 +66,7 @@ Let's take it one step further, and wrap all the tasks:
 
 **terminal**
 
-```
+```sh
 $ npm run dev
 $ npm run build
 $ npm run test

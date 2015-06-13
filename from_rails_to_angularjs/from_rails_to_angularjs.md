@@ -50,7 +50,7 @@ In order to allow Rails to serve our static html file, we created a constraint a
 
 `routes.rb`
 
-```
+````ruby
 constraints(format: 'html') do
 	resources :my_first_resource, :controller => 'static'
 	resources :my_second_resource, :controller => 'static'
@@ -60,7 +60,7 @@ end
 
 `static_controller.rb`
 
-```
+```ruby
 class StaticController < ApplicationController
   before_filter :authenticate_user!
   layout false
@@ -89,7 +89,7 @@ My coworker took the lead on this. He created a directive which wraps ngForm, it
 
 On the server there's a helper function that looks like this:
 
-```
+```ruby
 def render_validation_errors(model)
   render :json => { :errors => model.errors }, status: 422
 end
@@ -97,7 +97,7 @@ end
 
 An example from a controller looks like this:
 
-```
+```ruby
 def create
   succeeded = @my_resource.save
   if succeeded
@@ -121,7 +121,7 @@ We have a Rakefile that gives you a fresh environment to run your tests. It will
 
 `integration.rake`
 
-```
+```ruby
 namespace :integration do
   desc "Prepares the integration tests"
   task :prepare do
@@ -152,7 +152,7 @@ task :integration => ["integration:prepare", "integration:run"]
 
 `seeds.rb`
 
-```
+```ruby
 case Rails.env
 when "integration"
   puts "Loading integration seeds"
@@ -171,34 +171,38 @@ I've set this up so that you can run `grunt devtest` and have it prepare the who
 
 If you wish to take a similar approach with your E2E tests, our grunt.initconfig is setup like this:
 
-```
-watch: {
-  e2eTest: {
-    files: ['test/e2e/*/*_spec.js', 'test/e2e/*/*_spec.coffee'],
-    task: ['protractor:live'],
-    options: {
-      spawn: false
-    }
-  },
-  // Other watch tasks
+```javascript
+{
+  watch: {
+    e2eTest: {
+      files: ['test/e2e/*/*_spec.js', 'test/e2e/*/*_spec.coffee'],
+      task: ['protractor:live'],
+      options: {
+        spawn: false
+      }
+    },
+    // Other watch tasks
+  }
 }
 ```
-```
-protractor: {
-  live: {
-    options: {
-      configFile: 'protractor.live.conf.js',
-      args: {
+```javascript
+{
+  protractor: {
+    live: {
+      options: {
+        configFile: 'protractor.live.conf.js',
+        args: {
+        }
       }
-    }
-  },
-  // Other protractor tasks
+    },
+    // Other protractor tasks
+  }
 }
 ```
 
 After your grunt.initconfig you also need to set it up so that the file (or files) that get changed are the ones run.
 
-```
+```javascript
   var changedFiles = {};
   var onChange = grunt.util._.debounce(function() {
     grunt.config('protractor.live.options.args.specs', Object.keys(changedFiles));
@@ -224,7 +228,7 @@ Below you can see an example of how this looks, although I've ommited some parts
 
 `circle.yml`
 
-```
+```yaml
 dependencies:
   cache_directories:
     - "console/node_modules"
@@ -272,7 +276,7 @@ I forked a fork of the Heroku Node buildpack and made some parts configurable, [
 
 `.heroku_config`
 
-```
+```sh
 export NODE_WORKING_DIRECTORY='/console'
 export NPM_COMMAND='npm install'
 export GRUNT_COMMAND='grunt build'
