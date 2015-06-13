@@ -50,7 +50,7 @@ In order to allow Rails to serve our static html file, we created a constraint a
 
 `routes.rb`
 
-````ruby
+```ruby
 constraints(format: 'html') do
 	resources :my_first_resource, :controller => 'static'
 	resources :my_second_resource, :controller => 'static'
