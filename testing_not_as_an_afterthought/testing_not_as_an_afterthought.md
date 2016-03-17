@@ -15,7 +15,7 @@ Based on my experience, whatever you're making, the first couple times will prob
 
 > Dude, suckin' at somethin' is the first step towards bein' sorta good at somethin'.
 >
-> -- <cite>Jake the Dog, Adventure Time</cite>
+> — <cite>Jake the Dog, Adventure Time</cite>
 
 
 ## Leveling up
