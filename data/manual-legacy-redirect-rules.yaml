@@ -1,0 +1,8 @@
+# This file exists in order to maintain backwards compatibility.
+- destination: /posts
+  source: /post
+  type: 301
+
+- destination: /posts/from_rails_to_angularjs
+  source: /post/from_rails_to_angularjs
+  type: 301
