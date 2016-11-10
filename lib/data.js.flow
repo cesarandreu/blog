@@ -1,8 +1,9 @@
-// @flow
 declare export type RedirectRule = {
   destination: string,
   source: string,
   type: 301 | 302
 };
 
-declare module.exports: RedirectRule[];
+declare module.exports: {
+  redirectRules: RedirectRule[]
+};
