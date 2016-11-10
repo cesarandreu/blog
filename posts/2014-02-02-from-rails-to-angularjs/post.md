@@ -276,7 +276,7 @@ I forked a fork of the Heroku Node buildpack and made some parts configurable, [
 
 `.heroku_config`
 
-```sh
+```bash
 export NODE_WORKING_DIRECTORY='/console'
 export NPM_COMMAND='npm install'
 export GRUNT_COMMAND='grunt build'

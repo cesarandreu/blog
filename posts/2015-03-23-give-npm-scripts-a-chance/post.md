@@ -26,7 +26,7 @@ Let's say you're using gulp. If you're using `gulp` with a custom `gulpfile.js`,
 
 **terminal**
 
-```sh
+```bash
 $ gulp --gulpfile tasks/gulpfile.js [task]
 ```
 
@@ -44,7 +44,7 @@ Using npm scripts:
 
 **terminal**
 
-```sh
+```bash
 $ npm run gulp -- [task]
 ```
 
@@ -66,7 +66,7 @@ Let's take it one step further, and wrap all the tasks:
 
 **terminal**
 
-```sh
+```bash
 $ npm run dev
 $ npm run build
 $ npm run test
@@ -101,7 +101,7 @@ I've recently been using [babeljs](http://babeljs.io/), an ES6 to ES5 transpiler
 
 **terminal**
 
-```sh
+```bash
 $ npm run dev
 $ npm run test
 $ npm run cover
@@ -117,13 +117,13 @@ This is great, now you can reuse some of these commands!
 
 Want to watch all tests during development? Call the test script with the watch flag, or add a `test:live` script.
 
-```sh
+```bash
 $ npm run test -- --watch
 ```
 
 Maybe you only want to run a specific test?
 
-```sh
+```bash
 $ npm run test:base -- test/something.test.js
 ```
 
@@ -156,7 +156,7 @@ Before you decide to go searching for a tool, take a bit of time to think about 
 
 **terminal**
 
-```sh
+```bash
 $ npm run build
 ```
 
