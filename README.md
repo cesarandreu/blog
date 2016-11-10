@@ -1,4 +1,3 @@
-blog
-====
+# blog
 
-My blog's posts
+My blog posts.
