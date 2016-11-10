@@ -1,10 +1,14 @@
 {
   "name": "blog",
   "version": "20161109.0.0",
+  "main": "lib/index.js",
   "repository": {
     "url": "git@github.com:cesarandreu/blog.git",
     "type": "git"
   },
   "private": true,
-  "author": "Cesar Andreu <cesarandreu@gmail.com>"
+  "author": "Cesar Andreu <cesarandreu@gmail.com>",
+  "dependencies": {
+    "js-yaml": "^3.6.1"
+  }
 }
