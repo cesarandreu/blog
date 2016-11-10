@@ -8,38 +8,38 @@
   type: 301
 
 # Migration from snake_case to kebab-case
-- destination: posts/first-post
-  source: posts/first_post
+- destination: /posts/first-post
+  source: /posts/first_post
   type: 301
 
-- destination: posts/from-rails-to-angularjs
-  source: posts/from_rails_to_angularjs
+- destination: /posts/from-rails-to-angularjs
+  source: /posts/from_rails_to_angularjs
   type: 301
 
-- destination: posts/web-application-architecture
-  source: posts/web_application_architecture
+- destination: /posts/web-application-architecture
+  source: /posts/web_application_architecture
   type: 301
 
-- destination: posts/handling-user-states-in-angularjs
-  source: posts/handling_user_states_in_angularjs
+- destination: /posts/handling-user-states-in-angularjs
+  source: /posts/handling_user_states_in_angularjs
   type: 301
 
-- destination: posts/form-validation-with-angularjs-and-rails
-  source: posts/form_validation_with_angularjs_and_rails
+- destination: /posts/form-validation-with-angularjs-and-rails
+  source: /posts/form_validation_with_angularjs_and_rails
   type: 301
 
-- destination: posts/testing-not-as-an-afterthought
-  source: posts/testing_not_as_an_afterthought
+- destination: /posts/testing-not-as-an-afterthought
+  source: /posts/testing_not_as_an_afterthought
   type: 301
 
-- destination: posts/give-npm-scripts-a-chance
-  source: posts/give_npm_scripts_a_chance
+- destination: /posts/give-npm-scripts-a-chance
+  source: /posts/give_npm_scripts_a_chance
   type: 301
 
-- destination: posts/writing-modern-javascript
-  source: posts/writing_modern_javascript
+- destination: /posts/writing-modern-javascript
+  source: /posts/writing_modern_javascript
   type: 301
 
-- destination: posts/a-reasonable-starting-point-for-building-a-web-app
-  source: posts/a_reasonable_starting_point_for_building_a_web_app
+- destination: /posts/a-reasonable-starting-point-for-building-a-web-app
+  source: /posts/a_reasonable_starting_point_for_building_a_web_app
   type: 301

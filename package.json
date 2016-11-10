@@ -1,0 +1,10 @@
+{
+  "name": "blog",
+  "version": "20161109.0.0",
+  "repository": {
+    "url": "git@github.com:cesarandreu/blog.git",
+    "type": "git"
+  },
+  "private": true,
+  "author": "Cesar Andreu <cesarandreu@gmail.com>"
+}
