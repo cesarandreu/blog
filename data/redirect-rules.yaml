@@ -1,3 +1,13 @@
+# Legacy paths
+- destination: /posts
+  source: /post
+  type: 301
+
+- destination: /posts/from_rails_to_angularjs
+  source: /post/from_rails_to_angularjs
+  type: 301
+
+# Migration from snake_case to kebab-case
 - destination: posts/first-post
   source: posts/first_post
   type: 301
