@@ -9,6 +9,12 @@
   "private": true,
   "author": "Cesar Andreu <cesarandreu@gmail.com>",
   "dependencies": {
-    "js-yaml": "^3.6.1"
+    "he": "^1.1.0",
+    "jekyll-utils": "^0.1.2",
+    "js-yaml": "^3.6.1",
+    "marked": "^0.3.6",
+    "preact": "^6.4.0",
+    "preact-render-to-string": "^3.2.1",
+    "prismjs": "^1.5.1"
   }
 }
