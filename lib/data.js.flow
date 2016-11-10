@@ -1,4 +1,4 @@
-declare export type RedirectRule = {
+export type RedirectRule = {
   destination: string,
   source: string,
   type: 301 | 302
