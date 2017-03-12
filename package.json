@@ -1,6 +1,6 @@
 {
   "name": "blog",
-  "version": "20161110.1.0",
+  "version": "20170115.01",
   "main": "lib/index.js",
   "repository": {
     "url": "git@github.com:cesarandreu/blog.git",
@@ -11,10 +11,10 @@
   "dependencies": {
     "he": "^1.1.0",
     "jekyll-utils": "^0.1.2",
-    "js-yaml": "^3.6.1",
+    "js-yaml": "^3.7.0",
     "marked": "^0.3.6",
-    "preact": "^6.4.0",
-    "preact-render-to-string": "^3.2.1",
-    "prismjs": "^1.5.1"
+    "preact": "^7.1.0",
+    "preact-render-to-string": "^3.3.0",
+    "prismjs": "^1.6.0"
   }
 }
